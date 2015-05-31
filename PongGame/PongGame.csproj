@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Ball.ts" />
+    <TypeScriptCompile Include="Board.ts" />
     <TypeScriptCompile Include="Functions.ts" />
     <TypeScriptCompile Include="Keyboard.ts" />
     <TypeScriptCompile Include="mainLoop.ts" />
