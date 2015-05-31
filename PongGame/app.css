@@ -1,0 +1,15 @@
+﻿body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+span {
+    font-style: italic;
+}
+canvas {
+    position:absolute;
+    left:50%;
+    margin-left:-350px;
+    margin-right:auto;
+    background-color:black;
+    border:black 5px solid;
+}
