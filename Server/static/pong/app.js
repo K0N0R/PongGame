@@ -39,13 +39,12 @@ var Ball = (function () {
     return Ball;
 })();
 var Board = (function () {
-    function Board(Width, Height, posX, id) {
+    function Board(Width, Height, posX) {
         this.UPPlayerID = 0;
         this.DOWNPlayerID = 0;
         this.Width = Width;
         this.Height = Height;
         this.posX = posX;
-        this.id = id;
         this.PlayerUP = new Player(this.posX + this.Width / 2, 50, "white", 40, 37, 39, 100, 20, 1);
         this.PlayerDOWN = new Player(this.posX + this.Width / 2, this.Height - 50, "white", 83, 65, 68, 100, -20, -1);
         this.GetRandomPlayerForBall();
@@ -152,7 +151,6 @@ function NormalizeVectorLength(p) {
 }
 var Game = (function () {
     function Game(numOfBoards) {
-        this.BoardsID = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth"];
         this.Boards = new Array();
         this.UserWrapper1 = new UserWrapper;
         this.numOfBoards = numOfBoards;
@@ -161,7 +159,7 @@ var Game = (function () {
     }
     Game.prototype.AddBoardToGame = function () {
         for (var i = 0; i < this.numOfBoards; i++) {
-            this.Boards.push(new Board(700, 800, 350 + 700 * i, this.BoardsID[i]));
+            this.Boards.push(new Board(700, 800, 350 + 700 * i));
         }
     };
     Game.prototype.AddUsersAsPlayersToBoard = function (BoardID, PlayerID) {
@@ -234,9 +232,6 @@ function Network(socket) {
         console.log("PlayerLeave");
         Game1.UserWrapper1.DeleteUsersFromGame(data);
     });
-    socket.on('UserBecomePlayer', function (data) {
-        Game1.AddUsersAsPlayersToBoard({ BoardID: data.BoardID, UserID: data.UserID });
-    });
 }
 var Player = (function () {
     function Player(posX, posY, color, pushBall, steerLeft, steerRight, sizeX, sizeY, Ydirection) {
@@ -299,18 +294,6 @@ var User = (function () {
     }
     User.prototype.Render = function (translator) {
         this.Draw(translator);
-    };
-    User.prototype.ChceckBoard = function () {
-        for (var i = 0; i < Game1.numOfBoards; i++) {
-            if (this.cameraPos.x > Game1.Boards[i].posX && this.cameraPos.x < Game1.Boards[i].posX + Game1.Boards[i].Width) {
-                return Game1.Boards[i].id;
-            }
-        }
-    };
-    User.prototype.SelectBoard = function () {
-        if (Keyboard.keys[13]) {
-            socket.emit("UserSelectBoard", { BoardID: this.ChceckBoard(), UserID: this.id });
-        }
     };
     User.prototype.Draw = function (translator) {
         ctx.beginPath();

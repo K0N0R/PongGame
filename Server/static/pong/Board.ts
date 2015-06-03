@@ -1,4 +1,4 @@
-﻿class Board {
+class Board {
     PlayerUP: Player;
     PlayerDOWN: Player;
     BallFIRST: Ball;
@@ -8,11 +8,10 @@
     id: string;
     UPPlayerID= 0;
     DOWNPlayerID= 0;
-    constructor(Width: number, Height: number, posX: number,id:string) {
+    constructor(Width: number, Height: number, posX: number) {
         this.Width = Width;
         this.Height = Height;
         this.posX = posX;
-        this.id = id;
         this.PlayerUP = new Player(this.posX + this.Width / 2, 50, "white", 40, 37, 39, 100, 20, 1);
         this.PlayerDOWN = new Player(this.posX + this.Width / 2, this.Height - 50, "white", 83, 65, 68, 100, -20, -1);
         this.GetRandomPlayerForBall();

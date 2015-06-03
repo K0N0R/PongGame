@@ -1,4 +1,4 @@
-﻿class Player {
+class Player {
     steerLeft; steerRight; sizeX; sizeY; Ydirection; color; pushBall;
     pos = { x: 0, y: 0 };
     Score = 0;

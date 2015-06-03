@@ -1,4 +1,4 @@
-﻿var canvas;
+var canvas;
 var ctx: CanvasRenderingContext2D;
 var Game1: Game;
 var socket: SocketIOClient.Socket;

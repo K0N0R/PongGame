@@ -26,9 +26,14 @@
     <TypeScriptCompile Include="Ball.ts" />
     <TypeScriptCompile Include="Board.ts" />
     <TypeScriptCompile Include="Functions.ts" />
+    <TypeScriptCompile Include="Game.ts" />
     <TypeScriptCompile Include="Keyboard.ts" />
     <TypeScriptCompile Include="mainLoop.ts" />
+    <TypeScriptCompile Include="Network.ts" />
     <TypeScriptCompile Include="Player.ts" />
+    <TypeScriptCompile Include="socket.io.ts" />
+    <TypeScriptCompile Include="User.ts" />
+    <TypeScriptCompile Include="UserWrapper.ts" />
   </ItemGroup>
   <ItemGroup>
     <None Include="web.Debug.config">
